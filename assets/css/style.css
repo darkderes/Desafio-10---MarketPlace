@@ -105,6 +105,11 @@ footer p {
   max-width: 20rem;
   width: 100%;
   height: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.categories img:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
 }
 .categories h3 {
   font-size: 1rem;
@@ -124,9 +129,7 @@ footer p {
   margin: 0 10px;
 }
 .brand img {
-  /* width: 19.438rem; */
   height: 100%;
-  /* max-width: 19.438rem; */
   max-height: 12.4rem;
   border-radius: 10px;
   transition: transform 0.3s ease, opacity 0.3s ease; /* Añade una transición suave para la opacidad */
@@ -224,19 +227,6 @@ footer p {
   margin: 20px;
 }
 
-.rotate {
-  animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media (width >= 576px) {
   body {
     grid-template-areas:
@@ -268,6 +258,34 @@ footer p {
     font-size: 20px;
   }
 
+  .categories {
+    padding: 10px;
+    margin: 50px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+  }
+  .categories img {
+    max-width: 10rem;
+  }
+  .brands {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    margin-top: 700px;
+    margin-bottom: 80px;
+  }
+  .brand img {
+    width: 15rem;
+    /* margin: 0 10px; */
+  }
+
   .menu {
     justify-content: space-between;
     align-items: center;
@@ -288,7 +306,11 @@ footer p {
     margin: 0 10px;
   }
   .products {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr)
+    ); /* Crea columnas flexibles */
     flex-wrap: wrap; /* Permite que los elementos se envuelvan a una nueva línea */
     gap: 20px; /* Espacio entre productos */
     justify-content: space-evenly; /* Distribuye los productos equitativamente */
@@ -297,7 +319,7 @@ footer p {
   .product {
     border: #c0bec0 1px solid;
   }
-  img {
+  .product img {
     width: 200px;
     height: 200px;
   }
